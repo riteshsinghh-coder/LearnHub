@@ -35,6 +35,7 @@ function SignUp(){
             // let username=document.getElementById("username").value;
             function callback2(data){
                 localStorage.setItem("token",data.token);
+                window.location = "/"
             }
             function callback1(res){
                 return res.json().then(callback2);

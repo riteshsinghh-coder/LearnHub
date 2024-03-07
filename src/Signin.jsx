@@ -29,6 +29,7 @@ function SignIn(){
         <Button size={"large"} variant="contained" onClick={()=>{
             function callback2(data){
                 localStorage.setItem("token",data.token);
+                window.location = "/"
             }
             function callback1(res){
                 return res.json().then(callback2);

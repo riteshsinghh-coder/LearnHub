@@ -4,17 +4,21 @@ function AddCourse()
 {
     const [title,setTitle]=useState("");
     const [description,setDescription]=useState("");
+    const [image,setImage]=useState("");
     return <div style={{display:"flex", justifyContent:"center"}}>
         <Card variant={"outlined"} style={{width:400, padding:20}}>
          <TextField onChange={(e)=>{
             setTitle(e.target.value);
-         }} id={"title"} fullWidth={true}  label="Title" variant="outlined" /><br/><br/>
+         }} fullWidth={true}  label="Title" variant="outlined" /><br/><br/>
          <TextField onChange={(e)=>{
             setDescription(e.target.value);
-         }} id={"description"} fullWidth={true}  label="Description" variant="outlined" /><br/><br/>
+         }} fullWidth={true}  label="Description" variant="outlined" /><br/><br/>
+         <TextField onChange={(e)=>{
+            setImage(e.target.value);
+         }} fullWidth={true}  label="Image link" variant="outlined" /><br/><br/>
          <Button size={"large"} variant="contained" onClick={()=>{
-            function callback2(data){
-                localStorage.setItem("token",data.token);
+            function callback2(){
+                alert("courses added! ")
             }
             function callback1(res){
                 res.json().then(callback2);
@@ -24,7 +28,7 @@ function AddCourse()
                 body:JSON.stringify({
                     title:title,
                     description:description,
-                    imageLink:"",
+                    imageLink:image,
                     published:true
                 }),
                 headers:{
