@@ -30,9 +30,9 @@ function Course(){
             Loading.....
         </div>
     }
-    return<div>
+    return<div style={{display:"flex", justifyContent:"center", flexWrap:"wrap"}}>
        <CourseCard course={course}/>
-       <UpdateCard course={course} setCourses={setCourses}/>
+       <UpdateCard courses={courses} course={course} setCourses={setCourses}/>
     </div>
 }
 function UpdateCard(props){

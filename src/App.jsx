@@ -5,6 +5,14 @@ import AddCourse from "./Addcourse";
 import SignUp from "./Signup";
 import SignIn from "./Signin";
 import Course from "./Course";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+
 
 
 function App() {
@@ -12,17 +20,18 @@ function App() {
 
   return (
     <div style={{width:"100vw", height:"100vh", backgroundColor:"#eeeeee"}}>
-   
-      <Router>
-      <AppBar/>
-        <Routes>
-          <Route path="/addcourse" element={<AddCourse/>}/>
-          <Route path="/course/:courseId" element={<Course/>}/>
-          <Route path="/courses" element={<Courses/>}/>
-          <Route path="/login" element={<SignIn/>}/>
-          <Route path="/signup" element={<SignUp/>}/>
-        </Routes>
-      </Router>
+      <RecoilRoot>
+        <Router>
+        <AppBar/>
+          <Routes>
+            <Route path="/addcourse" element={<AddCourse/>}/>
+            <Route path="/course/:courseId" element={<Course/>}/>
+            <Route path="/courses" element={<Courses/>}/>
+            <Route path="/login" element={<SignIn/>}/>
+            <Route path="/signup" element={<SignUp/>}/>
+          </Routes>
+        </Router>
+      </RecoilRoot>
     </div>
   )
 }
